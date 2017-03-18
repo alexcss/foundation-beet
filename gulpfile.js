@@ -53,7 +53,7 @@ var path = {
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://localhost/funrock/';
+var URL = 'https://alexcss.com';
 
 var ftpConfig =  {
 	type:		'sftp',
