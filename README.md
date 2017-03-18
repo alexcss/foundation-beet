@@ -31,7 +31,8 @@ var URL = 'https://alexcss.com/foundation-beet'
 
 ### 3. Run Gulp
 
-While working on your project, run "gulp" task from the NPM: `gulp`
+While working on your project, run "gulp" task from the NPM: `gulp`.
+
 When project is done, run `gulp -p` to minify CSS, JS and remove unnecessary sourcemaps
 
 ## Overview
