@@ -19,8 +19,8 @@ var gulp = require('gulp'),
 	sftp = require('gulp-sftp'),
 	reload = browserSync.reload;
 
-// Check for --production flag
-var isProduction = !!(argv.production);
+// Check for --p flag
+var isProduction = !!(argv.p);
 
 var path = {
 	build: {
