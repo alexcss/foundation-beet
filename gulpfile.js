@@ -53,25 +53,25 @@ var path = {
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://projects.beetroot.se/academy/2017/poltava/alexcss/funrock/';
+var URL = 'https://alexcss.com/';
 
 var ftpConfig =  {
-	type: 		'sftp',
-    host:     	'projects.beetroot.se',
-    user: 		'beetroot_academy',
-    port:		2222,
-    password: 	'academy_beetroot',
-    parallel: 	10,
-    remote_path: '/2017/poltava/alexcss/funrock/test'
+	type:		'sftp',
+	host:		'host',
+	user: 		'login',
+	port:		2222,
+	password:	'pass',
+	parallel:	10,
+	remote_path: '/'
 };
 
 const globs = [
-        '**/*.*',
-        '!node_modules',
-        '!node_modules/**',
-        '!_src',
-        '!_src/**'
-    ];
+		'**/*.*',
+		'!node_modules',
+		'!node_modules/**',
+		'!_src',
+		'!_src/**'
+	];
 
 var config = {
 	files: ['**/*.php', 'assets/images/**/*.{png,jpg,gif}'],
@@ -93,33 +93,33 @@ gulp.task('clean', function (cb) {
 gulp.task( 'deploy', function () {
 
 	if (config.type == 'ftp') {
-	        //  FTP version
-	        const conn = ftp.create( {
-	            host:     ftpConfig.host,
-	            user:     ftpConfig.user,
-	            password: ftpConfig.password,
-	            port:     ftpConfig.port,
-	            parallel: 10,
-	            reload:   true,
-	            debug:    function(d){console.log(d);},
-	            log:      gutil.log
-	        });
-	        return gulp.src( globs, { base: '.', buffer: false } )
-	            .pipe( conn.newer( ftpConfig.remote_path ) ) // only upload newer files
-	            .pipe( conn.dest( ftpConfig.remote_path ) );
-	    } else {
-	        // SFTP version
-	        const conn = sftp({
-	                host: ftpConfig.host,
-	                user: ftpConfig.user,
-	                pass: ftpConfig.password,
-	                port: ftpConfig.port,
-	                remotePath: ftpConfig.remote_path,
-	                timeout: 50000
-	            });
-	        return gulp.src(globs, { base: '.', buffer: false } )
-	            .pipe(conn);
-	    }
+			//  FTP version
+			const conn = ftp.create( {
+				host:     ftpConfig.host,
+				user:     ftpConfig.user,
+				password: ftpConfig.password,
+				port:     ftpConfig.port,
+				parallel: 10,
+				reload:   true,
+				debug:    function(d){console.log(d);},
+				log:      gutil.log
+			});
+			return gulp.src( globs, { base: '.', buffer: false } )
+				.pipe( conn.newer( ftpConfig.remote_path ) ) // only upload newer files
+				.pipe( conn.dest( ftpConfig.remote_path ) );
+		} else {
+			// SFTP version
+			const conn = sftp({
+					host: ftpConfig.host,
+					user: ftpConfig.user,
+					pass: ftpConfig.password,
+					port: ftpConfig.port,
+					remotePath: ftpConfig.remote_path,
+					timeout: 50000
+				});
+			return gulp.src(globs, { base: '.', buffer: false } )
+				.pipe(conn);
+		}
 
 } );
 
