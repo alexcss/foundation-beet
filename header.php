@@ -29,15 +29,21 @@
 	<?php $responsiveToggleId = get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ? 'mobile-menu' : 'site-navigation' ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="title-bar" data-responsive-toggle="site-navigation">
-			<button class="menu-icon" type="button" data-toggle="<?php echo $responsiveToggleId ?>"></button>
 			<div class="title-bar-title">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<?php if(get_header_image()) : ?>
-					 	<img src="<?php echo get_header_image() ?>" alt="<?php bloginfo( 'name' ); ?>" height="<?php echo get_custom_header()->height; ?>" />
+					<?php if(has_custom_logo()) : ?>
+						<?php
+							$custom_logo_id = get_theme_mod( 'custom_logo' );
+							$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+						 ?>
+					 	<img src="<?php echo $image[0] ?>" alt="<?php bloginfo( 'name' ); ?>" />
 					<?php else : ?>
 						<?php bloginfo( 'name' ); ?>
 					<?php endif ?>
 				</a>
+			</div>
+			<div class="title-bar-right">
+				<button class="menu-icon" type="button" data-toggle="<?php echo $responsiveToggleId ?>"></button>
 			</div>
 		</div>
 
@@ -46,8 +52,12 @@
 				<ul class="menu">
 					<li class="home">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php if(get_header_image()) : ?>
-							 	<img src="<?php echo get_header_image() ?>" alt="<?php bloginfo( 'name' ); ?>" height="<?php echo get_custom_header()->height; ?>" />
+							<?php if(has_custom_logo()) : ?>
+								<?php
+									$custom_logo_id = get_theme_mod( 'custom_logo' );
+									$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+								 ?>
+							 	<img src="<?php echo $image[0] ?>" alt="<?php bloginfo( 'name' ); ?>" />
 							<?php else : ?>
 								<?php bloginfo( 'name' ); ?>
 							<?php endif ?>

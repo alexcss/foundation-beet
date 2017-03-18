@@ -33,23 +33,30 @@ function foundationpress_theme_support() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// Add post formats support: http://codex.wordpress.org/Post_Formats
-	add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
+	// add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat') );
 
 	// Declare WooCommerce support per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 	//add_theme_support( 'woocommerce' );
 
 	// Custom Header
-	add_theme_support( 'custom-header', array(
-			'height'        => '100',
-			'width'        => '200',
-			'flex-height'    => false,
-			'flex-width'    => true,
-			'uploads'       => true,
-			'header-text'   => false
-		)
-	);
+	// add_theme_support( 'custom-header', array(
+	// 		'height'        => '100',
+	// 		'width'        => '200',
+	// 		'flex-height'    => true,
+	// 		'flex-width'    => true,
+	// 		'uploads'       => true,
+	// 		'header-text'   => false
+	// 	)
+	// );
+	$defaults = array(
+	        'height'      => 50,
+	        'width'       => 50,
+	        'flex-height' => false,
+	        'flex-width'  => true
+	    );
+    add_theme_support( 'custom-logo', $defaults );
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
-	add_editor_style( 'assets/stylesheets/foundation.css' );
+	add_editor_style( 'assets/css/app.css' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );
