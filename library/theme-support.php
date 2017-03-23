@@ -51,13 +51,27 @@ function foundationpress_theme_support() {
 	$defaults = array(
 	        'height'      => 50,
 	        'width'       => 50,
-	        'flex-height' => false,
+	        'flex-height' => true,
 	        'flex-width'  => true
 	    );
     add_theme_support( 'custom-logo', $defaults );
+    add_theme_support( 'custom-background');
+
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
 	add_editor_style( 'assets/css/app.css' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );
+endif;
+
+if ( ! function_exists( 'foundationpress_customizeer' ) ) :
+/**
+ * Remove the additional CSS and Background image section from the Customizer.
+ * @param $wp_customize WP_Customize_Manager
+ */
+function foundationpress_customizeer( $wp_customize ) {
+	$wp_customize->remove_section( 'custom_css' );
+	$wp_customize->remove_section( 'background_image' );
+}
+add_action( 'customize_register', 'foundationpress_customizeer', 15 );
 endif;

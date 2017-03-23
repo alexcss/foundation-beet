@@ -27,20 +27,23 @@ if (!is_admin() && is_user_logged_in()) {
 }
 
 // Customize Login Screen
-function wordpress_login_styling() { ?>
+function wordpress_login_styling() {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$logoSrc = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+	?>
 	<style type="text/css">
 		.login #login h1 a {
-			background-image: url('<?php echo get_header_image(); ?>');
+			background-image: url('<?php echo $logoSrc[0]; ?>');
 			background-size: contain;
+			background-position: 50%;
 			width: auto;
-			height: 220px;
 		}
 	   body.login{
 		   background-color: #<?php echo get_background_color(); ?>;
-		   background-image: url('<?php echo get_background_image(); ?>') !important;
 		   background-repeat: repeat;
 		   background-position: center center;
-	   };
+	   }
 
 	</style>
 <?php }
