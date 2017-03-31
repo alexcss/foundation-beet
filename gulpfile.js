@@ -79,7 +79,8 @@ var config = {
 	host: 'localhost',
 	port: 9000,
 	logPrefix: "Beetroot_Academy",
-	proxy: URL
+	proxy: URL,
+	reloadDelay: 2000
 };
 
 gulp.task('webserver', function () {
