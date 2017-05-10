@@ -40,15 +40,11 @@
     padding-bottom: 0;
     font-weight: bold;
     font-size: 0.8rem;
-    line-height: 1;
 
     &:hover:not(.button) {
       background-color: #2a2a2a;
     }
   }
-
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
-  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
 
   .dropdown.menu .submenu {
     background-color: #121212;

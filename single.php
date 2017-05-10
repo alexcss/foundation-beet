@@ -7,40 +7,47 @@
  */
 
 get_header(); ?>
+<main class="ba-main-content">
+	<div class="row">
+		<?php while ( have_posts() ) : the_post(); ?>
+			<div class="column medium-8">
+			<article <?php post_class('') ?> id="post-<?php the_ID(); ?>">
+				<?php
+					if ( has_post_thumbnail() ) :
+						the_post_thumbnail();
+					endif;
+				?>
 
-<div id="single-post" role="main">
+				<h1 class="entry-title"><?php the_title(); ?></h1>
 
-<?php do_action( 'foundationpress_before_content' ); ?>
-<?php while ( have_posts() ) : the_post(); ?>
-	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
-		<header>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-			<?php foundationpress_entry_meta(); ?>
-		</header>
-		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
-		<div class="entry-content">
+				<?php foundationpress_entry_meta(); ?>
 
-		<?php
-			if ( has_post_thumbnail() ) :
-				the_post_thumbnail();
-			endif;
-		?>
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
 
-		<?php the_content(); ?>
-		<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-		</div>
-		<footer>
-			<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-			<p><?php the_tags(); ?></p>
-		</footer>
-		<?php the_post_navigation(); ?>
-		<?php do_action( 'foundationpress_post_before_comments' ); ?>
-		<?php comments_template(); ?>
-		<?php do_action( 'foundationpress_post_after_comments' ); ?>
-	</article>
-<?php endwhile;?>
+				<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
 
-<?php do_action( 'foundationpress_after_content' ); ?>
-<?php get_sidebar(); ?>
-</div>
+				<?php the_tags('<p>'.__('Tags').': ', ', ', '</p>'); ?>
+
+				<?php the_post_navigation(); ?>
+
+				<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+
+			</article>
+
+			<?php comments_template(); ?>
+
+			</div>
+			<!-- /.column medium-8 -->
+
+		<?php endwhile;?>
+
+		<?php get_sidebar(); ?>
+		<!-- /.column medium-4 -->
+
+	</div>
+	<!-- .row -->
+</main>
+
 <?php get_footer();

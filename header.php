@@ -17,7 +17,6 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-	<?php do_action( 'foundationpress_after_body' ); ?>
 
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 	<div class="off-canvas-wrapper">
@@ -25,9 +24,8 @@
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
 
-	<?php do_action( 'foundationpress_layout_start' ); ?>
 	<?php $responsiveToggleId = get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ? 'mobile-menu' : 'site-navigation' ?>
-	<header id="masthead" class="site-header" role="banner">
+	<header class="site-header">
 		<div class="title-bar" data-responsive-toggle="site-navigation">
 			<div class="title-bar-title">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -47,7 +45,7 @@
 			</div>
 		</div>
 
-		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+		<nav id="site-navigation" class="main-navigation top-bar">
 			<div class="top-bar-left">
 				<ul class="menu">
 					<li class="home">
@@ -74,6 +72,3 @@
 			</div>
 		</nav>
 	</header>
-
-	<section class="container">
-		<?php do_action( 'foundationpress_after_header' );

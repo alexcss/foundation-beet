@@ -75,7 +75,6 @@
   Add your scss files below to structure your project styles
 */
 
-// @import "map";
 
 @import "main";
 
@@ -86,16 +85,14 @@
 @import "modules/editor-style";
 
 // Components
-@import "components/buttons";
 @import "components/featured-image";
-@import "components/dividers";
 @import "components/links";
 // @import "components/slick";
+// @import "components/map";
 
 // Templates
 @import "templates/front";
-//@import "templates/kitchen-sink";
 @import "templates/page-default";
-@import "templates/page-sidebar-left";
-@import "templates/page-full-width";
+@import "templates/page-sidebar-right";
 @import "templates/single-post";
+// @import "templates/kitchen-sink";

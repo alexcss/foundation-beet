@@ -9,17 +9,11 @@
  */
 
 ?>
-
-		</section>
-		<div id="footer-container">
-			<footer id="footer">
-				<?php do_action( 'foundationpress_before_footer' ); ?>
-				<?php dynamic_sidebar( 'footer-widgets' ); ?>
-				<?php do_action( 'foundationpress_after_footer' ); ?>
-			</footer>
+	<footer class="ba-footer">
+		<div class="row column">
+			<?php dynamic_sidebar( 'footer-widgets' ); ?>
 		</div>
-
-		<?php do_action( 'foundationpress_layout_end' ); ?>
+	</footer>
 
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
 		</div><!-- Close off-canvas wrapper inner -->
@@ -27,8 +21,7 @@
 </div><!-- Close off-canvas content wrapper -->
 <?php endif; ?>
 
-
 <?php wp_footer(); ?>
-<?php do_action( 'foundationpress_before_closing_body' ); ?>
+
 </body>
 </html>
