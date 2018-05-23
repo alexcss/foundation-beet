@@ -37,6 +37,10 @@ function foundationpress_theme_support() {
 
 	// Declare WooCommerce support per http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
 	//add_theme_support( 'woocommerce' );
+	// Additional theme support for woocommerce 3.0.+
+	// add_theme_support( 'wc-product-gallery-zoom' );
+	// add_theme_support( 'wc-product-gallery-lightbox' );
+	// add_theme_support( 'wc-product-gallery-slider' );
 
 	// Custom Header
 	// add_theme_support( 'custom-header', array(
@@ -58,7 +62,7 @@ function foundationpress_theme_support() {
     add_theme_support( 'custom-background');
 
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
-	add_editor_style( 'assets/css/app.css' );
+	//add_editor_style( 'assets/css/app.css' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );

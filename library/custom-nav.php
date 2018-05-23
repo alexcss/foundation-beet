@@ -28,7 +28,7 @@ function wpt_register_theme_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 		'wpt_mobile_menu_layout',
 		array(
-			'default'	=> __( 'topbar', 'foundationpress' ),
+			'default'	=> __( 'offcanvas', 'foundationpress' ),
 		)
 	);
 
@@ -42,8 +42,8 @@ function wpt_register_theme_customizer( $wp_customize ) {
 				'section' 	=> 'mobile_menu_layout',
 				'settings' 	=> 'wpt_mobile_menu_layout',
 		        'choices' => array(
-								'topbar' => 'Topbar',
 		            'offcanvas' => 'Offcanvas',
+					'topbar' => 'Topbar',
 		        ),
 			)
 		)

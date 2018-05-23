@@ -15,6 +15,7 @@
 @import 'foundation';
 
 // WP overrides
+@import "global/accessibility";
 @import "global/wp-admin"; // Fix issues with wp-admin bar positioning
 @import "global/wp-overrides"; // Override the default WordPress styling for some elements
 
@@ -27,15 +28,19 @@
 @include foundation-global-styles;
 
 // Individual foundation components
-@include foundation-grid;
-// @include foundation-flex-grid;
+// @include foundation-grid;
+@include foundation-flex-grid;
+
+// @include foundation-xy-grid-classes;
+
 @include foundation-typography;
 @include foundation-forms;
 @include foundation-button;
+// @include foundation-range-input;
 // @include foundation-accordion;
 // @include foundation-accordion-menu;
 // @include foundation-badge;
-@include foundation-breadcrumbs;
+// @include foundation-breadcrumbs;
 // @include foundation-button-group;
 // @include foundation-callout;
 // @include foundation-card;
@@ -63,8 +68,8 @@
 // @include foundation-tooltip;
 @include foundation-top-bar;
 @include foundation-visibility-classes;
-@include foundation-float-classes;
-// @include foundation-flex-classes;
+// @include foundation-float-classes;
+@include foundation-flex-classes;
 
 // Motion UI
 // @include motion-ui-transitions;
@@ -81,7 +86,6 @@
 // Modules
 @import "modules/navigation";
 @import "modules/footer";
-@import "modules/sidebar";
 @import "modules/editor-style";
 
 // Components
@@ -93,6 +97,5 @@
 // Templates
 @import "templates/front";
 @import "templates/page-default";
-@import "templates/page-sidebar-right";
-@import "templates/single-post";
+@import "templates/single";
 // @import "templates/kitchen-sink";

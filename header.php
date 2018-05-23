@@ -26,9 +26,9 @@
 
 	<?php $responsiveToggleId = get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ? 'mobile-menu' : 'site-navigation' ?>
 	<header class="site-header">
-		<div class="title-bar" data-responsive-toggle="site-navigation">
+		<div class="site-title-bar title-bar" data-responsive-toggle="site-navigation">
 			<div class="title-bar-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<a class="ba-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 					<?php if(has_custom_logo()) : ?>
 						<?php
 							$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -41,27 +41,23 @@
 				</a>
 			</div>
 			<div class="title-bar-right">
-				<button class="menu-icon" type="button" data-toggle="<?php echo $responsiveToggleId ?>"></button>
+				<button class="menu-icon dark" type="button" data-toggle="<?php echo $responsiveToggleId ?>"></button>
 			</div>
 		</div>
 
 		<nav id="site-navigation" class="main-navigation top-bar">
 			<div class="top-bar-left">
-				<ul class="menu">
-					<li class="home">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php if(has_custom_logo()) : ?>
-								<?php
-									$custom_logo_id = get_theme_mod( 'custom_logo' );
-									$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-								 ?>
-							 	<img src="<?php echo $image[0] ?>" alt="<?php bloginfo( 'name' ); ?>" />
-							<?php else : ?>
-								<?php bloginfo( 'name' ); ?>
-							<?php endif ?>
-						</a>
-					</li>
-				</ul>
+				<a class="ba-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<?php if(has_custom_logo()) : ?>
+						<?php
+							$custom_logo_id = get_theme_mod( 'custom_logo' );
+							$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+						 ?>
+					 	<img src="<?php echo $image[0] ?>" alt="<?php bloginfo( 'name' ); ?>" />
+					<?php else : ?>
+						<?php bloginfo( 'name' ); ?>
+					<?php endif ?>
+				</a>
 			</div>
 			<div class="top-bar-right">
 				<?php foundationpress_top_bar_r(); ?>
