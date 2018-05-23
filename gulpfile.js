@@ -53,7 +53,7 @@ var path = {
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = 'http://localhost/urku/';
+var URL = 'http://localhost/';
 
 var ftpConfig =  {
 	type:		'sftp',
